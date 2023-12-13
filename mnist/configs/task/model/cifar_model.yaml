@@ -1,0 +1,5 @@
+defaults:
+  - cifar_model_schema
+  - backbone: resnet50_schema
+  - adapter: linear_2048_10
+  - head: identity_head

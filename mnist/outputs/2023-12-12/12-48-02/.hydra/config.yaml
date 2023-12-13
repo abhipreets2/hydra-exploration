@@ -1,0 +1,39 @@
+data_module:
+  _target_: data_modules.CIFAR10DataModule
+  batch_size: 64
+  num_workers: 8
+  pin_memory: true
+  drop_last: true
+  data_dir: ./data/cifar10
+task:
+  _target_: tasks.CIFARClassification
+  optimizer:
+    _target_: torch.optim.Adam
+    _partial_: true
+    lr: 5.0e-05
+    betas:
+    - 0.9
+    - 0.999
+    eps: 1.0e-08
+    weight_decay: 0.2
+    amsgrad: false
+  model:
+    _target_: models.CifarModel
+    backbone:
+      _target_: backbones.ResNet50
+      pretrained: true
+    adapter:
+      _target_: adapter.LinearAdapter
+      in_features: 2048
+      out_features: 10
+      flatten_input: false
+    head:
+      _target_: heads.IdentityHead
+  loss_function:
+    _target_: torch.nn.CrossEntropyLoss
+trainer:
+  _target_: pytorch_lightning.Trainer
+  max_epochs: 10
+  log_every_n_steps: 10
+  accelerator: cpu
+  devices: 1

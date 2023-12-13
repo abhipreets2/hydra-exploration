@@ -127,6 +127,11 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+hydra-env/
+
+# Misc
+mnist/data/
+mnist/checkpoints/
 
 # Spyder project settings
 .spyderproject

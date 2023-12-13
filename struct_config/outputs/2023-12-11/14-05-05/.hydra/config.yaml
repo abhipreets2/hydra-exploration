@@ -1,0 +1,4 @@
+experiment:
+  model: resnet50
+  nrof_epochs: 10
+  learning_rate: 0.005

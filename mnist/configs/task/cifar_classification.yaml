@@ -1,0 +1,5 @@
+defaults:
+  - cifar_classification_task_schema
+  - model: cifar_model
+  - optimizer: adam
+  - loss_function: cross_entropy_loss_function_schema

@@ -1,0 +1,22 @@
+task:
+  model:
+    backbone:
+      _target_: some_file.ResNet18
+    head:
+      _target_: some_file.IdentityHead
+    adapter:
+      _target_: some_file.LinearAdapter
+      in_features: 512
+      out_features: 10
+    some_other_model_var: 3
+some_other_task:
+  model:
+    backbone:
+      _target_: some_file.ResNet18
+    head:
+      _target_: some_file.IdentityHead
+    adapter:
+      _target_: some_file.LinearAdapter
+      in_features: 512
+      out_features: 10
+    some_other_model_var: 3

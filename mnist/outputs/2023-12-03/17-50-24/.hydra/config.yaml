@@ -1,0 +1,29 @@
+task:
+  model:
+    backbone:
+      _target_: backbones.ResNet18
+      pretrained: true
+    adapter:
+      _target_: adapters.LinearAdapter
+      in_features: 512
+      out_features: 10
+    head:
+      _target_: heads.IdentityHead
+    _target_: models.SimpleModel
+  optimizer:
+    _target_: torch.optim.Adam
+    _partial_: true
+    lr: 5.0e-05
+    weight_decay: 0.2
+  loss_function:
+    _target_: loss_function.CrossEntropyLoss
+  _target_: tasks.MNISTClassification
+data_module:
+  _target_: data_modules.test
+  name: abc
+trainer:
+  _target_: pytorch_lightning.Trainer
+  max_epochs: 32
+  log_every_n_steps: 10
+  accelerator: cpu
+  devices: 1

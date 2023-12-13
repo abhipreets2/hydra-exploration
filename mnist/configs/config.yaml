@@ -1,0 +1,5 @@
+defaults:
+  - config_schema
+  - task: cifar_classification
+  - data_module: cifar10
+  - trainer: trainer_schema

@@ -1,0 +1,9 @@
+defaults:
+  - experiment: experiment-with-resnet18
+  - loss_function: arcface
+  - config-to-merge
+  - _self_
+  - override hydra/job_logging: disabled
+experiment:
+  optimizer: SGD
+

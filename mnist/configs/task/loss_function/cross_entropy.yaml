@@ -1,0 +1,2 @@
+defaults:
+  - cross_entropy_loss_function_schema

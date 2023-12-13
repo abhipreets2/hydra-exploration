@@ -1,0 +1,4 @@
+experiment:
+  model: resnet18
+  batch_size: 512
+  nrof_epochs: 10
